@@ -10,7 +10,6 @@ export class AppComponent {
   letter = false;
   number = false;
   character = false;
-  passgenerator = '';
   password = '';
 
   getIength(event: Event) {
@@ -29,19 +28,17 @@ export class AppComponent {
   submit(event: Event) {
     event.preventDefault();
     this.password = '';
-    this.passgenerator = '';
+    let passgenerator = '';
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     const numbers = '0123456789';
     const characters = '!@#$%^&*()_-+=<>?';
-    if (this.letter) this.passgenerator += letters;
-    if (this.number) this.passgenerator += numbers;
-    if (this.character) this.passgenerator += characters;
-    if (this.passgenerator) {
+    if (this.letter) passgenerator += letters;
+    if (this.number) passgenerator += numbers;
+    if (this.character) passgenerator += characters;
+    if (passgenerator) {
       for (let i = 0; i < this.length; i++) {
-        const random_number = Math.floor(
-          Math.random() * this.passgenerator.length
-        );
-        this.password += this.passgenerator[random_number];
+        const random_number = Math.floor(Math.random() * passgenerator.length);
+        this.password += passgenerator[random_number];
       }
     }
   }
