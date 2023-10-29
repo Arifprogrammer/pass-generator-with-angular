@@ -50,7 +50,7 @@
     <div class="mx-auto w-max">
       <button
         type="submit"
-        [disabled]="!(letter || number || character)"
+        [disabled]="!(length && (letter || number || character))"
         class="px-4 py-1 text-white rounded-xl border-gray-400 border-2 hover:bg-slate-200 hover:text-black font-semibold transition duration-200"
         (click)="submit($event)"
       >
